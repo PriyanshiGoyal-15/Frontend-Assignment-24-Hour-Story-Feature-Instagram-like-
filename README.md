@@ -1,14 +1,8 @@
 # Frontend-Assignment-24-Hour-Story-Feature-Instagram-like-
 
-A React-based Instagram-like story feature with 24-hour expiration, built with Vite.
 
-## Features
+A **client-side Instagram-style stories feature** built with **React** and **Tailwind CSS**. Users can add stories, view them in full-screen, and stories automatically expire after 24 hours. All data is stored in **localStorage**—no backend required.
 
-- Upload stories with automatic 24-hour expiration
-- View stories in a full-screen viewer
-- Delete stories
-- Stories are stored locally in browser storage
-- Responsive design
 
 ## Tech Stack
 
@@ -23,21 +17,58 @@ A React-based Instagram-like story feature with 24-hour expiration, built with V
 2. Install dependencies: `npm install`
 3. Start development server: `npm run dev`
 
-## Usage
 
-1. Click the "+" button to upload a new story
-2. Stories automatically expire after 24 hours
-3. Click on any story in the story bar to view it
-4. Use the viewer to navigate between stories or delete them
+## ✅ Features
 
-## Project Structure
+- Users can **add a new story** by uploading an image from their device.
+- Uploaded images are:
+  - Resized to a maximum of **1080px x 1920px**.
+  - Converted to **Base64 format** for storage.
+- Stories are **stored in browser localStorage**.
+- Each story **expires automatically after 24 hours**.
+- Clicking a story opens it in **full-screen mode**.
+- Users can **navigate between stories**:
+  - Using **next/previous buttons**.
+  - Optional: swipe support (can be added later).
+- Responsive design:
+  - Works on **mobile, tablet, and desktop**.
+- Clean and polished UI:
+  - Loading states.
+  - Empty state handling.
+  - Story progress bar in full view.
 
-```
-src/
-├── App.jsx              # Main application component
-├── components/
-│   ├── StoryBar.jsx     # Story navigation bar
-│   └── StoryViewer.jsx  # Full-screen story viewer
-└── helper/
-    └── storyStorage.js  # Local storage management
+---
+
+## 📁 Project Structure
+
+- **`src/`**
+  - `App.jsx` → Main app component; handles state, story upload, resizing, scrolling.
+  - `components/`
+    - `StoryBar.jsx` → Shows story thumbnails in a horizontal scroll bar.
+    - `StoryViewer.jsx` → Fullscreen story view with progress bar, next/prev navigation, and delete option.
+  - `helper/`
+    - `storyStorage.js` → Handles localStorage: get, save, and remove expired stories.
+  - `index.css` → Tailwind CSS and custom scrollbar hiding.
+  - `index.js` → React entry point.
+
+---
+
+## 💾 Data Structure
+
+Each story stored in **localStorage** contains:
+
+- `id` → Unique identifier (timestamp of creation)
+- `imageBase64` → Image data in Base64 format
+- `createdAt` → Timestamp when the story was added
+- `expiresAt` → Timestamp when the story expires (24 hours later)
+
+Example:
+
+```json
+{
+  "id": 1670000000000,
+  "imageBase64": "data:image/jpeg;base64,...",
+  "createdAt": 1670000000000,
+  "expiresAt": 1670086400000
+}
 ```
