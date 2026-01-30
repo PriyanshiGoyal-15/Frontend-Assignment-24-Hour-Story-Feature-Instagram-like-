@@ -1,16 +1,43 @@
-# React + Vite
+# Frontend-Assignment-24-Hour-Story-Feature-Instagram-like-
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based Instagram-like story feature with 24-hour expiration, built with Vite.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Upload stories with automatic 24-hour expiration
+- View stories in a full-screen viewer
+- Delete stories
+- Stories are stored locally in browser storage
+- Responsive design
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- Local Storage API
+- Modern JavaScript (ES6+)
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Start development server: `npm run dev`
+
+## Usage
+
+1. Click the "+" button to upload a new story
+2. Stories automatically expire after 24 hours
+3. Click on any story in the story bar to view it
+4. Use the viewer to navigate between stories or delete them
+
+## Project Structure
+
+```
+src/
+├── App.jsx              # Main application component
+├── components/
+│   ├── StoryBar.jsx     # Story navigation bar
+│   └── StoryViewer.jsx  # Full-screen story viewer
+└── helper/
+    └── storyStorage.js  # Local storage management
+```
