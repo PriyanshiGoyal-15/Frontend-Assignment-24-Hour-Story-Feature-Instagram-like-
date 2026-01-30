@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+
+@layer base {
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+        @apply antialiased;
+    }
+}
+
+@layer utilities {
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* Additional global scrollbar hiding */
+.scrollbar-hide::-webkit-scrollbar,
+*:has(.scrollbar-hide)::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+}
